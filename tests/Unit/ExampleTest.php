@@ -22,7 +22,7 @@ class ExampleTest extends TestCase
 
         $result = $controller->addition(4, 9);
 
-        $this->assertEquals($result);
+       // $this->assertEquals($result);
         $this->assertNotNull($result);
         $this->assertEquals(13, $result);
         $this-> assertGreaterThan(0, $result);
