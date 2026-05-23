@@ -4,7 +4,7 @@ use App\Http\Controllers\CalculadoraFrontController;
 use App\Http\Controllers\ContarPalabrasController;
 use App\Http\Controllers\ConversorController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ConversorController;
+
 
 // Ruta de bienvenida por defecto
 Route::get('/', function () {
