@@ -1,28 +1,24 @@
 <?php
 
-namespace Tests\Unit;
+use App\Http\Controllers\CalculadoraFrontController;
+use App\Http\Controllers\ContarPalabrasController;
+use App\Http\Controllers\ConversorController;
+use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\OperationsController;
-use PHPUnit\Framework\TestCase;
+// Ruta de bienvenida por defecto
+Route::get('/', function () {
+    return view('welcome');
+});
 
-class ExampleTest extends TestCase
-{
-    /**
-     * A basic test example.
-     */
-    public function test_that_true_is_true(): void
-    {
-        $this->assertTrue(true);
-    }
+// Ruta del Conversor (de tu equipo)
+Route::get('/convertir/{cantidad}/{moneda}', [ConversorController::class, 'convertir']);
 
-    public function test_addition_result(): void
-    {
-        $controller = new OperationsController;
+// --- TUS RUTAS: CONTADOR DE PALABRAS ---
+Route::match(['get', 'post'], '/contador', [ContarPalabrasController::class, 'contar']);
 
-        $result = $controller->addition(4, 9);
+// --- RUTAS DE TU COMPAÑERA: CALCULADORA ---
+// Ruta para ver el formulario
+Route::get('/calculadora', [CalculadoraFrontController::class, 'index']);
 
-        $this->assertNotNull($result);
-        $this->assertEquals(13, $result);
-        $this->assertGreaterThan(0, $result);
-    }
-}
+// Ruta oculta que recibe el formulario cuando le dan clic al botón
+Route::post('/calculadora/resolver', [CalculadoraFrontController::class, 'resolver']);
