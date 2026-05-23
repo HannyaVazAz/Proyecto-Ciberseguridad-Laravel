@@ -4,7 +4,7 @@ use App\Http\Controllers\CalculadoraFrontController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('si jala el azureeee');
 });
 
 use App\Http\Controllers\ConversorController;
