@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 class ConversorController extends Controller
 {
     public function convertir($cantidad, $moneda)
@@ -21,14 +19,14 @@ class ConversorController extends Controller
 
             default:
                 return response()->json([
-                    'error' => 'Moneda no soportada'
+                    'error' => 'Moneda no soportada',
                 ], 400);
         }
 
         return response()->json([
             'cantidad_original' => $cantidad,
             'moneda' => $moneda,
-            'resultado_en_mxn' => $resultado
+            'resultado_en_mxn' => $resultado,
         ]);
     }
 }
