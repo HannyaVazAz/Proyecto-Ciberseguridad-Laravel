@@ -21,13 +21,13 @@ class CalculadoraFrontTest extends TestCase
         // Simulamos llenar el formulario con 10 + 5 y darle a "Calcular"
         $response = $this->post('/calculadora/resolver', [
             'num1' => 10,
-            'num2' => 5,
+            'num2' => 4,
             'operacion' => 'suma',
         ]);
 
         // Verificamos que la página responda bien y muestre el 15
         $response->assertStatus(200)
             ->assertSee('Resultado:')
-            ->assertSee('15');
+            ->assertSee('14');
     }
 }
