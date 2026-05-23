@@ -1,14 +1,28 @@
 <?php
 
-use App\Http\Controllers\ContarPalabrasController;
-use Illuminate\Support\Facades\Route;
+namespace Tests\Unit;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+use App\Http\Controllers\OperationsController;
+use PHPUnit\Framework\TestCase;
 
-use App\Http\Controllers\ConversorController;
+class ExampleTest extends TestCase
+{
+    /**
+     * A basic test example.
+     */
+    public function test_that_true_is_true(): void
+    {
+        $this->assertTrue(true);
+    }
 
-Route::get('/convertir/{cantidad}/{moneda}', [ConversorController::class, 'convertir']);
+    public function test_addition_result(): void
+    {
+        $controller = new OperationsController;
 
-Route::match(['get', 'post'], '/contador', [ContarPalabrasController::class, 'contar']);
+        $result = $controller->addition(4, 9);
+
+        $this->assertNotNull($result);
+        $this->assertEquals(13, $result);
+        $this->assertGreaterThan(0, $result);
+    }
+}
