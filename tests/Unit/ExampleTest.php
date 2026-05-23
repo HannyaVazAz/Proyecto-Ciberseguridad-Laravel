@@ -3,8 +3,7 @@
 namespace Tests\Unit;
 
 use App\Http\Controllers\OperationsController;
-use PHPUnit\Framework\TestCase;
-use function PHPUnit\Framework\assertGreaterThan;
+use Tests\TestCase; // CORREGIDO: Importación correcta para que herede las herramientas de Laravel
 
 class ExampleTest extends TestCase
 {
@@ -24,7 +23,6 @@ class ExampleTest extends TestCase
 
         $this->assertNotNull($result);
         $this->assertEquals(13, $result);
-        $this-> assertGreaterThan(0, $result);
-
+        $this->assertGreaterThan(0, $result);
     }
 }
