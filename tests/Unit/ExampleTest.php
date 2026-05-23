@@ -4,7 +4,6 @@ namespace Tests\Unit;
 
 use App\Http\Controllers\OperationsController;
 use PHPUnit\Framework\TestCase;
-use function PHPUnit\Framework\assertGreaterThan;
 
 class ExampleTest extends TestCase
 {
@@ -22,10 +21,8 @@ class ExampleTest extends TestCase
 
         $result = $controller->addition(4, 9);
 
-       // $this->assertEquals($result);
         $this->assertNotNull($result);
         $this->assertEquals(13, $result);
-        $this-> assertGreaterThan(0, $result);
-
+        $this->assertGreaterThan(0, $result);
     }
 }
