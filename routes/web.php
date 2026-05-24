@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\CalculadoraFrontController;
-use App\Http\Controllers\ContarPalabrasController;use App\Http\Controllers\ConversorController;
 use App\Http\Controllers\AdivinaNumeroController;
+use App\Http\Controllers\CalculadoraFrontController;
+use App\Http\Controllers\ContarPalabrasController;
+use App\Http\Controllers\ConversorController;
 use Illuminate\Support\Facades\Route;
 
 // Ruta de bienvenida
@@ -25,3 +26,20 @@ Route::get('/conversor', function () {
 });
 
 Route::post('/convertir', [ConversorController::class, 'convertir']);
+
+Route::get('/envio', function () {
+    return view('envio');
+});
+
+Route::post('/envio/calcular', function (\Illuminate\Http\Request $request) {
+
+    $envio = new \App\Http\Controllers\EnvioController();
+
+    $resultado = $envio->calcularEnvio(
+        $request->peso,
+        $request->distancia,
+        $request->tipo
+    );
+
+    return view('envio', compact('resultado'));
+});
