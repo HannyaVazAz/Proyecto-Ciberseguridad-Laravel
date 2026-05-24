@@ -10,4 +10,5 @@ Route::get('/', function () {
 
 Route::get('/convertir/{cantidad}/{moneda}', [ConversorController::class, 'convertir']);
 
-Route::get('/adivina', [AdivinaNumeroController::class, 'mensaje']);
+// Ruta del juego Adivina el Número
+Route::get('/adivina', [AdivinaNumeroController::class, 'adivinar']);
