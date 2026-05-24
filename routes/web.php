@@ -1,9 +1,9 @@
 <?php
 
+use App\Http\Controllers\AdivinaNumeroController;
 use App\Http\Controllers\CalculadoraFrontController;
 use App\Http\Controllers\ContarPalabrasController;
 use App\Http\Controllers\ConversorController;
-use App\Http\Controllers\AdivinaNumeroController;
 use App\Http\Controllers\ParesController;
 use Illuminate\Support\Facades\Route;
 

@@ -13,16 +13,14 @@ class ParesController extends Controller
 
     public function isEven(Request $request)
     {
-        $num = $request->num;
+        $num = (int) $request->num;
 
-        if (!is_numeric($num) || intval($num) != $num) {
-            $resultado = 'Solo se permiten números enteros';
-        } elseif (($num % 2) == 0) {
-            $resultado = 'Es un número par';
+        if (($num % 2) == 0) {
+            $resultado = 'Es un número par :D';
         } else {
-            $resultado = 'Es un número impar';
+            $resultado = 'Es un número impar :o';
         }
 
-        return view('pares', compact('resultado'));
+        return view('pares', compact('resultado', 'num'));
     }
 }
