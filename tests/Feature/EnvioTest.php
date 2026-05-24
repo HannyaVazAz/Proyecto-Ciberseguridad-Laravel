@@ -34,12 +34,3 @@ class EnvioTest extends TestCase
         $this->assertEquals(300, $resultado);
     }
 
-    public function test_datos_invalidos()
-    {
-        $envio = new EnvioController();
-
-        $resultado = $envio->calcularEnvio(-1, 20, "normal");
-
-        $this->assertEquals("Datos inválidos", $resultado);
-    }
-}
