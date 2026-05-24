@@ -2,33 +2,46 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 class ConversorController extends Controller
 {
-    public function convertir($cantidad, $moneda)
+    public function convertir(Request $request)
     {
-        $resultado = 0;
+        $cantidad = $request->cantidad;
+        $de = $request->de;
+        $a = $request->a;
 
-        switch ($moneda) {
-            case 'usd':
-                $resultado = $cantidad * 18.5;
-                break;
+        $tasas = [
+            'USD_MXN' => 18.5,
+            'MXN_USD' => 0.054,
+            'EUR_MXN' => 21,
+            'MXN_EUR' => 0.047,
+            'USD_EUR' => 0.92,
+            'EUR_USD' => 1.08,
+        ];
 
-            case 'eur':
-                $resultado = $cantidad * 21;
-                break;
+        $clave = $de . '_' . $a;
 
             default:
                 return response()->json([
-                    'error' => 'Moneda no soportada'
+                    'error' => 'Moneda no soportada',
                 ], 400);
         }
 
         return response()->json([
             'cantidad_original' => $cantidad,
             'moneda' => $moneda,
-            'resultado_en_mxn' => $resultado
+            'resultado_en_mxn' => $resultado,
+        if (!isset($tasas[$clave])) {
+            return back()->with('error', 'Conversión no soportada');
+        }
+
+        $resultado = $cantidad * $tasas[$clave];
+
+        return view('conversor', [
+            'resultado' => $resultado,
+            'cantidad' => $cantidad,
+            'de' => $de,
+            'a' => $a
         ]);
     }
 }
