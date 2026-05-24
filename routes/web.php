@@ -20,4 +20,6 @@ Route::get('/conversor', function () {
     return view('conversor');
 });
 
-Route::get('/pares/{num}', [ParesController::class, 'isEven']);
+Route::get('/pares', [ParesController::class, 'index']);
+
+Route::post('/pares', [ParesController::class, 'isEven']);

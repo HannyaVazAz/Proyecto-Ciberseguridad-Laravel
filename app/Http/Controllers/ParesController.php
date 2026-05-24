@@ -2,18 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+
 class ParesController extends Controller
 {
-    public function isEven($num): string
+    public function index()
     {
+        return view('pares');
+    }
+
+    public function isEven(Request $request)
+    {
+        $num = $request->num;
+
         if (!is_numeric($num) || intval($num) != $num) {
-            return 'Solo se permiten números enteros';
+            $resultado = 'Solo se permiten números enteros';
+        } elseif (($num % 2) == 0) {
+            $resultado = 'Es un número par';
+        } else {
+            $resultado = 'Es un número impar';
         }
 
-        if (($num % 2) == 0) {
-            return 'Es un número par';
-        } else {
-            return 'Es un número impar';
-        }
+        return view('pares', compact('resultado'));
     }
 }
