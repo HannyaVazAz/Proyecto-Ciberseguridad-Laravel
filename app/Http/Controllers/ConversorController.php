@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+
 class ConversorController extends Controller
 {
     public function convertir(Request $request)
@@ -21,16 +23,6 @@ class ConversorController extends Controller
 
         $clave = $de . '_' . $a;
 
-            default:
-                return response()->json([
-                    'error' => 'Moneda no soportada',
-                ], 400);
-        }
-
-        return response()->json([
-            'cantidad_original' => $cantidad,
-            'moneda' => $moneda,
-            'resultado_en_mxn' => $resultado,
         if (!isset($tasas[$clave])) {
             return back()->with('error', 'Conversión no soportada');
         }
