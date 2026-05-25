@@ -15,7 +15,7 @@ class AdivinaNumeroController extends Controller
         $intentos = $request->input('intentos', 3);
 
         // Resultado vacío
-        $resultado = "";
+        $resultado = '';
 
         // Verifica si el usuario escribió un número
         if ($request->has('numero')) {
@@ -29,24 +29,24 @@ class AdivinaNumeroController extends Controller
             // Si adivina
             if ($numeroUsuario == $numeroCorrecto) {
 
-                $resultado = "🎉 ¡Lo lograste! Adivinaste el número.";
+                $resultado = '🎉 ¡Lo lograste! Adivinaste el número.';
 
             } else {
 
                 // Pistas
                 if ($numeroUsuario < $numeroCorrecto) {
 
-                    $resultado = "🔺 El número correcto es mayor.";
+                    $resultado = '🔺 El número correcto es mayor.';
 
                 } else {
 
-                    $resultado = "🔻 El número correcto es menor.";
+                    $resultado = '🔻 El número correcto es menor.';
                 }
 
                 // Si ya no tiene intentos
                 if ($intentos == 0) {
 
-                    $resultado = "❌ Ya no tienes intentos. El número correcto era: " . $numeroCorrecto;
+                    $resultado = '❌ Ya no tienes intentos. El número correcto era: '.$numeroCorrecto;
                 }
             }
         }

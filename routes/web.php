@@ -7,7 +7,6 @@ use App\Http\Controllers\ConversorController;
 use App\Http\Controllers\EnvioController;
 use App\Http\Controllers\ParesController;
 use Illuminate\Http\Request;
-
 use Illuminate\Support\Facades\Route;
 
 // Ruta de bienvenida
