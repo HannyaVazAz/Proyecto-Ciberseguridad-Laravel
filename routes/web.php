@@ -36,13 +36,7 @@ Route::get('/envio', function () {
     return view('envio');
 });
 
-<<<<<<< Updated upstream
 Route::post('/envio/calcular', function (Request $request) {
-=======
-
-
-Route::post('/envio/calcular', function (\Illuminate\Http\Request $request) {
->>>>>>> Stashed changes
 
     $envio = new EnvioController;
 
