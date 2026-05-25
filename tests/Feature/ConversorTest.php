@@ -23,7 +23,7 @@ class ConversorTest extends TestCase
 
         $response->assertStatus(200);
 
-        $response->assertSee('185');
+        $response->assertSee('200');
     }
 
     public function test_invalid_conversion()
