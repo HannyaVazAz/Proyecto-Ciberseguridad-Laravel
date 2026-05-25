@@ -2,7 +2,6 @@
 
 namespace Tests\Feature;
 
-use App\Http\Controllers\EnvioController;
 use PHPUnit\Framework\TestCase;
 
 class EnvioTest extends TestCase
