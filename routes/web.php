@@ -49,3 +49,7 @@ Route::post('/envio/calcular', function (Request $request) {
 
     return view('envio', compact('resultado'));
 });
+
+Route::get('/romper', function () {
+    $x = 5 / 0;
+});
