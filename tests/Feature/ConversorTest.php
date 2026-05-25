@@ -18,7 +18,7 @@ class ConversorTest extends TestCase
         $response = $this->post('/convertir', [
             'cantidad' => 10,
             'de' => 'USD',
-            'a' => 'MXN'
+            'a' => 'MXN',
         ]);
 
         $response->assertStatus(200);
@@ -31,7 +31,7 @@ class ConversorTest extends TestCase
         $response = $this->post('/convertir', [
             'cantidad' => 10,
             'de' => 'USD',
-            'a' => 'YEN'
+            'a' => 'YEN',
         ]);
 
         $response->assertSessionHas('error');
