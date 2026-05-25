@@ -4,65 +4,98 @@
     <meta charset="UTF-8">
     <title>🎮 Adivina el Número</title>
 
+    <!-- Fuente moderna -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
-            color: white;
+            background: linear-gradient(135deg, #0f172a, #1e3a8a);
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
         }
 
         .card {
-            background: white;
-            color: #333;
-            padding: 30px;
-            border-radius: 15px;
-            width: 350px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 35px;
+            border-radius: 20px;
+            width: 360px;
             text-align: center;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+            backdrop-filter: blur(10px);
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         h1 {
+            font-size: 22px;
             margin-bottom: 10px;
+            color: #1e3a8a;
         }
 
         .resultado {
             margin: 15px 0;
-            font-weight: bold;
+            font-weight: 600;
+            color: #111;
         }
 
         input {
-            padding: 10px;
-            width: 80%;
+            width: 100%;
+            padding: 12px;
             margin-top: 10px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            outline: none;
+            transition: 0.3s;
             text-align: center;
+            font-size: 14px;
+        }
+
+        input:focus {
+            border-color: #1e3a8a;
+            box-shadow: 0 0 8px rgba(30, 58, 138, 0.3);
         }
 
         button {
+            width: 100%;
             margin-top: 15px;
-            padding: 10px 20px;
+            padding: 12px;
             border: none;
-            background: #2a5298;
+            background: #1e3a8a;
             color: white;
-            border-radius: 8px;
+            border-radius: 10px;
+            font-weight: 600;
             cursor: pointer;
             transition: 0.3s;
         }
 
         button:hover {
-            background: #1e3c72;
+            background: #0f172a;
+            transform: scale(1.03);
         }
 
         .intentos {
-            margin-top: 10px;
-            font-size: 14px;
-            color: gray;
+            margin-top: 12px;
+            font-size: 13px;
+            color: #666;
         }
     </style>
 </head>
@@ -80,8 +113,6 @@
         <input type="number" name="numero" placeholder="Escribe un número" required>
 
         <input type="hidden" name="intentos" value="{{ $intentos }}">
-
-        <br>
 
         <button type="submit">Probar</button>
     </form>
