@@ -12,7 +12,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/adivina', [AdivinaNumeroController::class, 'mensaje']);
+Route::get('/adivina', [AdivinaNumeroController::class, 'adivinar']);
 
 Route::match(['get', 'post'], '/contador', [ContarPalabrasController::class, 'contar']);
 
