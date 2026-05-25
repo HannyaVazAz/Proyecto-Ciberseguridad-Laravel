@@ -21,9 +21,9 @@ class ConversorController extends Controller
             'EUR_USD' => 1.08,
         ];
 
-        $clave = $de . '_' . $a;
+        $clave = $de.'_'.$a;
 
-        if (!isset($tasas[$clave])) {
+        if (! isset($tasas[$clave])) {
             return back()->with('error', 'Conversión no soportada');
         }
 
@@ -33,7 +33,7 @@ class ConversorController extends Controller
             'resultado' => $resultado,
             'cantidad' => $cantidad,
             'de' => $de,
-            'a' => $a
+            'a' => $a,
         ]);
     }
 }

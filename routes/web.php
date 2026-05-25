@@ -4,7 +4,9 @@ use App\Http\Controllers\AdivinaNumeroController;
 use App\Http\Controllers\CalculadoraFrontController;
 use App\Http\Controllers\ContarPalabrasController;
 use App\Http\Controllers\ConversorController;
+use App\Http\Controllers\EnvioController;
 use App\Http\Controllers\ParesController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 // Ruta de bienvenida
@@ -34,9 +36,9 @@ Route::get('/envio', function () {
     return view('envio');
 });
 
-Route::post('/envio/calcular', function (\Illuminate\Http\Request $request) {
+Route::post('/envio/calcular', function (Request $request) {
 
-    $envio = new \App\Http\Controllers\EnvioController();
+    $envio = new EnvioController;
 
     $resultado = $envio->calcularEnvio(
         $request->peso,
