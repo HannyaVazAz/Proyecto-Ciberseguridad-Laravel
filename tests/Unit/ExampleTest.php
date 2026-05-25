@@ -3,7 +3,7 @@
 namespace Tests\Unit;
 
 use App\Http\Controllers\OperationsController;
-use Tests\TestCase; // CORREGIDO: Importación correcta para que herede las herramientas de Laravel
+use Tests\TestCase;
 
 class ExampleTest extends TestCase
 {
